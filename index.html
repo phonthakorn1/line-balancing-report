@@ -9,284 +9,10 @@
         body {
             font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
         }
-        
-        /* Print styles */
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-            .print-section {
-                page-break-after: always;
-                page-break-inside: avoid;
-            }
-            .print-section:last-child {
-                page-break-after: auto;
-            }
-            body {
-                background: white !important;
-            }
-            .bg-gradient-to-br {
-                background: white !important;
-            }
-        }
-        
-        @media screen {
-            .print-only {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
-    <!-- Screen Version -->
-    <div id="screen-view">
-        <div id="app"></div>
-    </div>
-
-    <!-- Print Version (Hidden on screen) -->
-    <div id="print-view" class="print-only">
-        <!-- Header for Print -->
-        <div class="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-8 mb-8">
-            <h1 class="text-3xl font-bold mb-2">รายงานข้อเสนอการเพิ่มเครื่องจักร</h1>
-            <p class="text-blue-200">Machine Purchase Proposal Report - Line Balancing Analysis</p>
-        </div>
-
-        <!-- Section 1: Executive Summary -->
-        <div class="print-section p-8">
-            <h2 class="text-2xl font-bold text-blue-800 mb-4">📋 บทสรุปผู้บริหาร (Executive Summary)</h2>
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-6">
-                <p class="text-gray-800 leading-relaxed">
-                    รายงานนี้จัดทำขึ้นเพื่อนำเสนอเหตุผลและหลักการทางวิศวกรรมอุตสาหการที่รองรับการเพิ่มเครื่องจักรงานเชื่อมรอบ <span class="font-semibold text-blue-700">1 เครื่อง</span> โดยอ้างอิงข้อมูลกำลังการผลิตจริง และหลักการ Line Balancing เพื่อแก้ปัญหาคอขวด (Bottleneck) และเพิ่มความเสถียรภาพของกระบวนการผลิต
-                </p>
-            </div>
-            <div class="grid grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500">
-                    <div class="text-3xl font-bold text-blue-600">1</div>
-                    <div class="text-sm text-gray-600 mt-1">เครื่องจักรที่ขอเพิ่ม</div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-green-500">
-                    <div class="text-3xl font-bold text-green-600">+0.07%</div>
-                    <div class="text-sm text-gray-600 mt-1">Line Efficiency</div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow border-l-4 border-purple-500">
-                    <div class="text-3xl font-bold text-purple-600">780</div>
-                    <div class="text-sm text-gray-600 mt-1">ชิ้น/ชม. (เป้าหมาย)</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 2: Production Data -->
-        <div class="print-section p-8">
-            <h2 class="text-2xl font-bold text-blue-800 mb-4">📊 ข้อมูลพื้นฐานสายการผลิต</h2>
-            <div class="bg-white rounded-lg shadow overflow-hidden mb-4">
-                <table class="w-full border-collapse">
-                    <thead class="bg-blue-600 text-white">
-                        <tr>
-                            <th class="px-6 py-3 text-left border">กระบวนการ</th>
-                            <th class="px-6 py-3 text-center border">ผลผลิตรวม</th>
-                            <th class="px-6 py-3 text-center border">จำนวนเครื่อง</th>
-                            <th class="px-6 py-3 text-center border">ผลผลิต/เครื่อง</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4 font-medium text-gray-900 border">งานเชื่อมหู</td>
-                            <td class="px-6 py-4 text-center text-gray-700 border">780 ชิ้น/ชม.</td>
-                            <td class="px-6 py-4 text-center text-blue-600 font-semibold border">12</td>
-                            <td class="px-6 py-4 text-center text-gray-700 border">65 ชิ้น/ชม.</td>
-                        </tr>
-                        <tr class="bg-white border-b">
-                            <td class="px-6 py-4 font-medium text-gray-900 border">งานเชื่อมขา</td>
-                            <td class="px-6 py-4 text-center text-gray-700 border">780 ชิ้น/ชม.</td>
-                            <td class="px-6 py-4 text-center text-blue-600 font-semibold border">12</td>
-                            <td class="px-6 py-4 text-center text-gray-700 border">65 ชิ้น/ชม.</td>
-                        </tr>
-                        <tr class="bg-red-50 border-b">
-                            <td class="px-6 py-4 font-medium text-gray-900 border">
-                                งานเชื่อมรอบ
-                                <span class="ml-2 text-xs bg-red-500 text-white px-2 py-1 rounded">Bottleneck</span>
-                            </td>
-                            <td class="px-6 py-4 text-center text-gray-700 border">741 ชิ้น/ชม.</td>
-                            <td class="px-6 py-4 text-center text-blue-600 font-semibold border">19</td>
-                            <td class="px-6 py-4 text-center text-gray-700 border">39 ชิ้น/ชม.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
-                <p class="text-sm font-semibold text-yellow-800">ข้อกำหนด:</p>
-                <p class="text-sm text-gray-700 mt-1">งานเชื่อมรอบต้องใช้ชิ้นงานจากงานเชื่อมหูและเชื่อมขาอย่างละ 1 ชิ้น</p>
-            </div>
-        </div>
-
-        <!-- Section 3: Analysis -->
-        <div class="print-section p-8">
-            <h2 class="text-2xl font-bold text-blue-800 mb-4">📈 การวิเคราะห์ Line Balancing</h2>
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <div class="bg-white p-6 rounded-lg shadow border">
-                    <h3 class="font-semibold text-blue-700 mb-3">Task Time (งานหู/ขา)</h3>
-                    <div class="space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">12 เครื่อง:</span>
-                            <span class="font-semibold text-gray-800">4.62 วินาที/ชิ้น</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">1 เครื่อง:</span>
-                            <span class="font-semibold text-gray-800">55.44 วินาที/ชิ้น</span>
-                        </div>
-                        <div class="text-xs text-gray-500 mt-2">คำนวณจาก: 3600 / 780</div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow border">
-                    <h3 class="font-semibold text-blue-700 mb-3">Cycle Time (งานเชื่อมรอบ)</h3>
-                    <div class="space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">19 เครื่อง:</span>
-                            <span class="font-semibold text-gray-800">4.86 วินาที/ชิ้น</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">1 เครื่อง:</span>
-                            <span class="font-semibold text-gray-800">1:32.34 นาที/ชิ้น</span>
-                        </div>
-                        <div class="text-xs text-gray-500 mt-2">คำนวณจาก: 3600 / 741</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
-                <h3 class="font-semibold text-red-800 mb-2">ปัญหาที่พบ</h3>
-                <p class="text-gray-800">
-                    ความต้องการของงานเชื่อมรอบเท่ากับ <span class="font-bold text-red-600">780 ชิ้น/ชม.</span> เพื่อ match กับงานหูและขา
-                    <br/>
-                    ปัจจุบันงานเชื่อมรอบสามารถผลิตได้เพียง <span class="font-bold text-red-600">741 ชิ้น/ชม.</span> 
-                    <br/>
-                    <span class="text-red-700 font-semibold">ต่ำกว่าความต้องการ 39 ชิ้น/ชม. หรือ 5%</span>
-                </p>
-            </div>
-        </div>
-
-        <!-- Section 4: Reasons -->
-        <div class="print-section p-8">
-            <h2 class="text-2xl font-bold text-blue-800 mb-4">⚠️ เหตุผลที่ต้องเพิ่มเครื่องจักร</h2>
-            <div class="space-y-4">
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-blue-900 mb-2">ขจัดข้อจำกัดด้านกำลังการผลิต</h3>
-                            <p class="text-gray-700 leading-relaxed text-sm">กระบวนการเชื่อมรอบเป็นขั้นตอนที่มีเวลาปฏิบัติงานสูงกว่ากระบวนการต้นทาง การเพิ่มเครื่องจักรจะช่วยให้สายการผลิตเกิดความสมดุล (Line Balancing) และลดความเสี่ยงที่จุดนี้จะเป็นคอขวดของไลน์ผลิต</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-blue-900 mb-2">ลดปริมาณงานระหว่างกระบวนการสะสม</h3>
-                            <p class="text-gray-700 leading-relaxed text-sm">กำลังการผลิตที่ไม่สมดุลทำให้เกิดการสะสมของชิ้นงานก่อนขั้นตอนเชื่อมรอบ การเพิ่มเครื่องจักรจะช่วยลด WIP และปรับปรุงการไหลของงาน (Flow Efficiency) ให้มีความต่อเนื่องมากขึ้น</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-blue-900 mb-2">เพิ่มประสิทธิภาพเวลาหยุดซ่อมบำรุง</h3>
-                            <p class="text-gray-700 leading-relaxed text-sm">เมื่อมีเครื่องจักรสำรองที่เพียงพอ สามารถดำเนินกิจกรรม PM ได้อย่างมีประสิทธิผลมากขึ้น โดยไม่ส่งผลกระทบต่อยอดการผลิต ลดโอกาสเกิดเครื่องหยุดกระทันหัน และเพิ่มความพร้อมใช้งานโดยรวมของระบบ</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 5: PDCA -->
-        <div class="print-section p-8">
-            <h2 class="text-2xl font-bold text-blue-800 mb-4">⚙️ PDCA สำหรับการเพิ่มเครื่องจักร</h2>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white rounded-lg shadow overflow-hidden border">
-                    <div class="bg-blue-500 text-white px-6 py-3 font-bold">Plan (วางแผน)</div>
-                    <div class="p-6">
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>วิเคราะห์ Cycle Time + Takt Time ของทุกกระบวนการ</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>วิเคราะห์กำลังการผลิตในภาพรวมและตำแหน่งคอขวด</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ทำแผนผัง Layout สำหรับติดตั้งเครื่องใหม่</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>จัดทำงบประมาณสำหรับลงทุนเครื่องจักร</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>เตรียมแผนอบรมพนักงานและจัดทำมาตรฐานงาน</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow overflow-hidden border">
-                    <div class="bg-green-500 text-white px-6 py-3 font-bold">Do (ดำเนินการ)</div>
-                    <div class="p-6">
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>จัดซื้อ ติดตั้ง ทดสอบเครื่องจักร</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ทำการทดลองผลิต (Trial Run)</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>จัดทำ WI (Work Instruction) และปรับ Standard Time</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>อบรมพนักงานที่เกี่ยวข้อง</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow overflow-hidden border">
-                    <div class="bg-yellow-500 text-white px-6 py-3 font-bold">Check (ตรวจสอบ)</div>
-                    <div class="p-6">
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ตรวจสอบ Output รายชั่วโมงหลังติดตั้ง</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ตรวจค่า Line Efficiency ใหม่</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ตรวจสอบว่า WIP ลดลงหรือไม่</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ทบทวน OEE ว่าดีขึ้นหรือไม่</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow overflow-hidden border">
-                    <div class="bg-purple-500 text-white px-6 py-3 font-bold">Act (ปรับปรุง)</div>
-                    <div class="p-6">
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ปรับสมดุลไลน์ผลิตใหม่หลังเพิ่มเครื่อง</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>อัปเดตวิธีการทำงานและฝึกอบรม</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>ทำแผน PM เฉพาะสำหรับเครื่องใหม่</span></li>
-                            <li class="flex items-start"><span class="text-green-500 mr-2">✓</span><span>เตรียมความพร้อมรองรับการขยายกำลังผลิตในอนาคต</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 6: Conclusion -->
-        <div class="print-section p-8">
-            <h2 class="text-2xl font-bold text-blue-800 mb-4">✅ บทสรุปและข้อเสนอแนะ</h2>
-            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-lg shadow-lg border border-blue-200">
-                <div class="flex items-start mb-4">
-                    <span class="text-4xl mr-4">✅</span>
-                    <div>
-                        <p class="text-gray-800 leading-relaxed mb-4">
-                            จากผลการวิเคราะห์และหลักการ Line Balancing พบว่าการเพิ่มเครื่องงานเชื่อมรอบ <span class="font-bold text-blue-700">1 เครื่อง</span> ช่วยเพิ่มความยืดหยุ่นของไลน์ผลิต ลดความเสี่ยงคอขวด และช่วยให้การไหลของงานมีเสถียรภาพมากขึ้น
-                        </p>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                            <p class="text-sm font-semibold text-gray-800">ผลลัพธ์ที่คาดหวัง:</p>
-                            <p class="text-lg font-bold text-green-600 mt-2">Line Efficiency เพิ่มขึ้น +0.07%</p>
-                            <p class="text-xs text-gray-600 mt-1">(จาก 6.74% เป็น 6.81%)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-6 pt-6 border-t border-blue-300">
-                    <p class="text-center text-blue-900 font-semibold">✓ เหมาะสมต่อการลงทุน</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer for Print -->
-        <div class="bg-gray-800 text-gray-300 p-6 mt-8">
-            <div class="flex justify-between items-center text-sm">
-                <div>
-                    <p class="font-semibold text-white">Industrial Engineering Department</p>
-                    <p class="text-gray-400 mt-1">วันที่จัดทำ: <script>document.write(new Date().toLocaleDateString('th-TH', {year: 'numeric', month: 'long', day: 'numeric'}));</script></p>
-                </div>
-                <div class="text-right">
-                    <p class="text-gray-400">สำหรับใช้ภายในองค์กร</p>
-                    <p class="text-gray-500 text-xs mt-1">Confidential Document</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="app"></div>
 
     <script>
         const App = {
@@ -329,4 +55,360 @@
                     items: [
                         'วิเคราะห์ Cycle Time + Takt Time ของทุกกระบวนการ',
                         'วิเคราะห์กำลังการผลิตในภาพรวมและตำแหน่งคอขวด',
-                        'ทำแผนผัง Layout สำหรับติดตั้งเครื
+                        'ทำแผนผัง Layout สำหรับติดตั้งเครื่องใหม่',
+                        'จัดทำงบประมาณสำหรับลงทุนเครื่องจักร',
+                        'เตรียมแผนอบรมพนักงานและจัดทำมาตรฐานงาน'
+                    ]
+                },
+                {
+                    phase: 'Do (ดำเนินการ)',
+                    color: 'bg-green-500',
+                    items: [
+                        'จัดซื้อ ติดตั้ง ทดสอบเครื่องจักร',
+                        'ทำการทดลองผลิต (Trial Run)',
+                        'จัดทำ WI (Work Instruction) และปรับ Standard Time',
+                        'อบรมพนักงานที่เกี่ยวข้อง'
+                    ]
+                },
+                {
+                    phase: 'Check (ตรวจสอบ)',
+                    color: 'bg-yellow-500',
+                    items: [
+                        'ตรวจสอบ Output รายชั่วโมงหลังติดตั้ง',
+                        'ตรวจค่า Line Efficiency ใหม่',
+                        'ตรวจสอบว่า WIP ลดลงหรือไม่',
+                        'ทบทวน OEE ว่าดีขึ้นหรือไม่'
+                    ]
+                },
+                {
+                    phase: 'Act (ปรับปรุง)',
+                    color: 'bg-purple-500',
+                    items: [
+                        'ปรับสมดุลไลน์ผลิตใหม่หลังเพิ่มเครื่อง',
+                        'อัปเดตวิธีการทำงานและฝึกอบรม',
+                        'ทำแผน PM เฉพาะสำหรับเครื่องใหม่',
+                        'เตรียมความพร้อมรองรับการขยายกำลังผลิตในอนาคต'
+                    ]
+                }
+            ],
+
+            init() {
+                this.render();
+                this.attachEvents();
+            },
+
+            attachEvents() {
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.activeSection = e.currentTarget.dataset.section;
+                        this.render();
+                    });
+                });
+            },
+
+            render() {
+                const appEl = document.getElementById('app');
+                appEl.innerHTML = `
+                    ${this.renderHeader()}
+                    ${this.renderNav()}
+                    ${this.renderContent()}
+                    ${this.renderFooter()}
+                `;
+                this.attachEvents();
+            },
+
+            renderHeader() {
+                return `
+                    <div class="bg-gradient-to-r from-blue-700 to-blue-900 text-white shadow-lg">
+                        <div class="max-w-7xl mx-auto px-6 py-8">
+                            <h1 class="text-3xl font-bold mb-2">รายงานข้อเสนอการเพิ่มเครื่องจักร</h1>
+                            <p class="text-blue-200">Machine Purchase Proposal Report - Line Balancing Analysis</p>
+                            <div class="mt-4 flex gap-3">
+                                <button onclick="window.print()" class="flex items-center gap-2 bg-white text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-50 transition text-sm font-semibold">
+                                    📥 ดาวน์โหลด PDF
+                                </button>
+                                <button onclick="window.print()" class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition text-sm font-semibold">
+                                    🖨️ พิมพ์รายงาน
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderNav() {
+                return `
+                    <div class="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
+                        <div class="max-w-7xl mx-auto px-6">
+                            <div class="flex overflow-x-auto gap-1">
+                                ${this.sections.map(section => `
+                                    <button data-section="${section.id}" class="nav-btn flex items-center gap-2 px-4 py-4 border-b-2 transition whitespace-nowrap text-sm font-medium ${
+                                        this.activeSection === section.id
+                                            ? 'border-blue-600 text-blue-700 bg-blue-50'
+                                            : 'border-transparent text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                                    }">
+                                        <span>${section.icon}</span>
+                                        ${section.title}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderContent() {
+                let content = '';
+                switch(this.activeSection) {
+                    case 'executive':
+                        content = this.renderExecutive();
+                        break;
+                    case 'data':
+                        content = this.renderData();
+                        break;
+                    case 'analysis':
+                        content = this.renderAnalysis();
+                        break;
+                    case 'reasons':
+                        content = this.renderReasons();
+                        break;
+                    case 'pdca':
+                        content = this.renderPDCA();
+                        break;
+                    case 'conclusion':
+                        content = this.renderConclusion();
+                        break;
+                }
+                return `
+                    <div class="max-w-7xl mx-auto px-6 py-8">
+                        <div class="bg-white rounded-lg shadow-lg p-8">
+                            ${content}
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderExecutive() {
+                return `
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-blue-800 mb-4">บทสรุปผู้บริหาร (Executive Summary)</h2>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+                            <p class="text-gray-800 leading-relaxed">
+                                รายงานนี้จัดทำขึ้นเพื่อนำเสนอเหตุผลและหลักการทางวิศวกรรมอุตสาหการที่รองรับการเพิ่มเครื่องจักรงานเชื่อมรอบ <span class="font-semibold text-blue-700">1 เครื่อง</span> โดยอ้างอิงข้อมูลกำลังการผลิตจริง และหลักการ Line Balancing เพื่อแก้ปัญหาคอขวด (Bottleneck) และเพิ่มความเสถียรภาพของกระบวนการผลิต
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mt-6">
+                            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500">
+                                <div class="text-3xl font-bold text-blue-600">1</div>
+                                <div class="text-sm text-gray-600 mt-1">เครื่องจักรที่ขอเพิ่ม</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-green-500">
+                                <div class="text-3xl font-bold text-green-600">+0.07%</div>
+                                <div class="text-sm text-gray-600 mt-1">Line Efficiency</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow border-l-4 border-purple-500">
+                                <div class="text-3xl font-bold text-purple-600">780</div>
+                                <div class="text-sm text-gray-600 mt-1">ชิ้น/ชม. (เป้าหมาย)</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderData() {
+                return `
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-blue-800 mb-4">ข้อมูลพื้นฐานสายการผลิต</h2>
+                        <div class="bg-white rounded-lg shadow overflow-hidden">
+                            <table class="w-full">
+                                <thead class="bg-blue-600 text-white">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left">กระบวนการ</th>
+                                        <th class="px-6 py-3 text-center">ผลผลิตรวม</th>
+                                        <th class="px-6 py-3 text-center">จำนวนเครื่อง</th>
+                                        <th class="px-6 py-3 text-center">ผลผลิต/เครื่อง</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${this.productionData.map(item => `
+                                        <tr class="${item.bottleneck ? 'bg-red-50' : 'bg-white'} border-b hover:bg-gray-50">
+                                            <td class="px-6 py-4 font-medium text-gray-900">
+                                                ${item.process}
+                                                ${item.bottleneck ? '<span class="ml-2 text-xs bg-red-500 text-white px-2 py-1 rounded">Bottleneck</span>' : ''}
+                                            </td>
+                                            <td class="px-6 py-4 text-center text-gray-700">${item.totalOutput}</td>
+                                            <td class="px-6 py-4 text-center text-blue-600 font-semibold">${item.machines}</td>
+                                            <td class="px-6 py-4 text-center text-gray-700">${item.perMachine}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg mt-4">
+                            <p class="text-sm font-semibold text-yellow-800">ข้อกำหนด:</p>
+                            <p class="text-sm text-gray-700 mt-1">งานเชื่อมรอบต้องใช้ชิ้นงานจากงานเชื่อมหูและเชื่อมขาอย่างละ 1 ชิ้น</p>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderAnalysis() {
+                return `
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-blue-800 mb-4">การวิเคราะห์ Line Balancing</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <h3 class="font-semibold text-blue-700 mb-3">Task Time (งานหู/ขา)</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">12 เครื่อง:</span>
+                                        <span class="font-semibold text-gray-800">4.62 วินาที/ชิ้น</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">1 เครื่อง:</span>
+                                        <span class="font-semibold text-gray-800">55.44 วินาที/ชิ้น</span>
+                                    </div>
+                                    <div class="text-xs text-gray-500 mt-2">คำนวณจาก: 3600 / 780</div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <h3 class="font-semibold text-blue-700 mb-3">Cycle Time (งานเชื่อมรอบ)</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">19 เครื่อง:</span>
+                                        <span class="font-semibold text-gray-800">4.86 วินาที/ชิ้น</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">1 เครื่อง:</span>
+                                        <span class="font-semibold text-gray-800">1:32.34 นาที/ชิ้น</span>
+                                    </div>
+                                    <div class="text-xs text-gray-500 mt-2">คำนวณจาก: 3600 / 741</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                            <h3 class="font-semibold text-red-800 mb-2">ปัญหาที่พบ</h3>
+                            <p class="text-gray-800">
+                                ความต้องการของงานเชื่อมรอบเท่ากับ <span class="font-bold text-red-600">780 ชิ้น/ชม.</span> เพื่อ match กับงานหูและขา
+                                <br/>
+                                ปัจจุบันงานเชื่อมรอบสามารถผลิตได้เพียง <span class="font-bold text-red-600">741 ชิ้น/ชม.</span> 
+                                <br/>
+                                <span class="text-red-700 font-semibold">ต่ำกว่าความต้องการ 39 ชิ้น/ชม. หรือ 5%</span>
+                            </p>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderReasons() {
+                return `
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-blue-800 mb-4">เหตุผลที่ต้องเพิ่มเครื่องจักร</h2>
+                        ${this.reasons.map((reason, idx) => `
+                            <div class="bg-white p-6 rounded-lg shadow border-l-4 border-blue-500">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                                        ${idx + 1}
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-blue-900 mb-2">${reason.title}</h3>
+                                        <p class="text-gray-700 leading-relaxed text-sm">${reason.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            },
+
+            renderPDCA() {
+                return `
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-blue-800 mb-4">PDCA สำหรับการเพิ่มเครื่องจักร</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${this.pdcaSteps.map(step => `
+                                <div class="bg-white rounded-lg shadow overflow-hidden">
+                                    <div class="${step.color} text-white px-6 py-3 font-bold">
+                                        ${step.phase}
+                                    </div>
+                                    <div class="p-6">
+                                        <ul class="space-y-2">
+                                            ${step.items.map(item => `
+                                                <li class="flex items-start text-sm">
+                                                    <span class="text-green-500 mr-2">✓</span>
+                                                    <span class="text-gray-700">${item}</span>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderConclusion() {
+                return `
+                    <div class="space-y-4">
+                        <h2 class="text-2xl font-bold text-blue-800 mb-4">บทสรุปและข้อเสนอแนะ</h2>
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-lg shadow-lg border border-blue-200">
+                            <div class="flex items-start mb-4">
+                                <span class="text-4xl mr-4">✅</span>
+                                <div>
+                                    <p class="text-gray-800 leading-relaxed mb-4">
+                                        จากผลการวิเคราะห์และหลักการ Line Balancing พบว่าการเพิ่มเครื่องงานเชื่อมรอบ <span class="font-bold text-blue-700">1 เครื่อง</span> ช่วยเพิ่มความยืดหยุ่นของไลน์ผลิต ลดความเสี่ยงคอขวด และช่วยให้การไหลของงานมีเสถียรภาพมากขึ้น
+                                    </p>
+                                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                                        <p class="text-sm font-semibold text-gray-800">ผลลัพธ์ที่คาดหวัง:</p>
+                                        <p class="text-lg font-bold text-green-600 mt-2">
+                                            Line Efficiency เพิ่มขึ้น +0.07%
+                                        </p>
+                                        <p class="text-xs text-gray-600 mt-1">
+                                            (จาก 6.74% เป็น 6.81%)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-blue-300">
+                                <p class="text-center text-blue-900 font-semibold">
+                                    ✓ เหมาะสมต่อการลงทุน
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            renderFooter() {
+                const today = new Date().toLocaleDateString('th-TH', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                return `
+                    <div class="bg-gray-800 text-gray-300 mt-12">
+                        <div class="max-w-7xl mx-auto px-6 py-6">
+                            <div class="flex justify-between items-center text-sm">
+                                <div>
+                                    <p class="font-semibold text-white">Industrial Engineering Department</p>
+                                    <p class="text-gray-400 mt-1">วันที่จัดทำ: ${today}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-gray-400">สำหรับใช้ภายในองค์กร</p>
+                                    <p class="text-gray-500 text-xs mt-1">Confidential Document</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        };
+
+        // Initialize app when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            App.init();
+        });
+    </script>
+</body>
+</html>
